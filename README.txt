@@ -1,23 +1,77 @@
-Verti by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+# Pamoja Capstone project for Moringa School
+### project or program name
+Pamoja_Capstone
+
+### author name
+Sharon Nyarinda
+Jacob Nyaichowa
+Esther 
+Naliaka
+Vera Makori
+
+### description of project
+GOAL
+The goal of this Capstone is to build a project within a 12 week Software engineering bootcamp, to showcase skills learnt throughout this course. 
+These include working with front end, back end technologies, API , Databases , data types, Array, writing functions, control flow, and operators.
+
+Overall Description
+For this Project, you will be required to build a web application that takes a user's birthday and calculates the day of the week they were born and then depending on their gender outputs their Akan Name. 
+
+USER STORY
+ As a user, I would like to;
+
+See a  small description of what the application does on the landing page.
+Enter my birthday through a form 
+Choose what gender I am.
+Click the submit button to see what my Akan name would be
+Requirements 
+The application should check whether the date and month entered is valid. if either of them is invalid,  the user should be alerted and asked to enter a valid one. For example:
+        An invalid day should be (d<=0) or (d>31)
+
+        An invalid month should be (m<= 0) or (m > 12)  
+
+The application should output to the user their Akan name depending on their gender. For example, if a user is male and the result of the calculation is 0, then the application should match that with Kwasi since Kwasi corresponds to Sunday which has an index 0. Hence the output the user will see should be something like “Your Akan name is Kwasi”
+OBJECTIVES
+
+The project will be evaluated based on the following objectives:
+
+The project uses one or more javascript functions.
+Appropriate control flows and logical operators are used in the project.
+The project makes use of one or more arrays in javascript.
+The project uses a  HTML input to collect user data.
+The project uses a custom CSS stylesheet that incorporates cascading, box model and floats.
+The project works as expected, achieving the functionality required.
+The project demonstrates an understanding of the week's concepts. If requested, you should be able to explain your code to your instructor.
+
+### Technologies used in project
+>HTML
+>CSS
+>GIT
+>GITHUB
+>VISUAL STUDIO CODE
+>BOOTSTRAP
+>JAVASCRIPT
 
 
-A super simple + modern responsive website template. Took a slightly different direction
-on the mobile version's slide out nav (floating button versus a full on titlebar).
+### project setup instructions
+Set up Git- Merge with VS Code- use of git init, add, commit, remove etc
+Set up Github- Set up account, set up SSH Keys
+Set up Visual studio code- Download Extensions VS Code Icons, Live server and Prettier code formatter. Set up of directories, files , repositories. 
+Download Bootstrap or use Bootstrap CDN 
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+### link to live site on GitHub Pages
+Github repository Link: https://github.com/nyarindas/nyarindasprofile.git
+Live Github Link: https://nyarindas.github.io/nyarindasprofile/
 
-(* = Not included)
-
-Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
-
-AJ
-aj@lkn.io | @ajlkn
+### support and contact details
+Should you require any support- kindly email: nyarindas@gmail.com 
 
 
-Credits:
+### copyright and license information
+To the extent possible under law, Sharon Nyarinda has waived all copyright and related or neighboring rights to this work.
+
+
+### Credits:
 
 	Demo Images:
 		Unsplash (unsplash.com)
