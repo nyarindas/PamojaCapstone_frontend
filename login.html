@@ -1,69 +1,116 @@
 <html>
-	<head>
-		<title>Pamoja Login</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/style.css" />
-        <link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload homepage">
-		<div id="page-wrapper">
 
-			<!-- Header -->
-				<div id="header-wrapper">
-					<header id="header" class="container">
+<head>
+	<title>Pamoja Login</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/style.css" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
 
-						<!-- Logo -->
-							<div id="logo">
-								<h1><a href="index.html">PAMOJA</a></h1>
-								<span>by G7 Software Engineering Team</span>
-							</div>
+<body class="is-preload homepage">
+	<div id="page-wrapper">
 
-						<!-- Nav -->
-							<nav id="nav">
-								<ul>
-									<li class="current"><a href="index.html">Welcome</a></li>
-									<li><a href="partnerships.html">Partnerships</a></li>
-									<li><a href="right-sidebar.html">Blog</a></li>
-									<li><a href="no-sidebar.html">Contact</a></li>
-								</ul>
-							</nav>
+		<!-- Header -->
+		<div id="header-wrapper">
+			<header id="header" class="container">
 
-					</header>
+				<!-- Logo -->
+				<div id="logo">
+					<h1><a href="index.html">PAMOJA</a></h1>
+					<span>by G7 Software Engineering Team</span>
 				</div>
 
+				<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li class="current"><a href="index.html">Welcome</a></li>
+						<li><a href="partnerships.html">Partnerships</a></li>
+						<li><a href="right-sidebar.html">Blog</a></li>
+						<li><a href="no-sidebar.html">Contact</a></li>
+					</ul>
+				</nav>
 
-			<!-- Features -->
-				<div id="features-wrapper">
-					<div class="container">
-						<div class="row">
-                            <!-- <div id="bg"></div> -->
- 
-                                <form>
-                                    <div class="form-field">
-                                      <input type="email" placeholder="Email / Username" required/>
-                                    </div>
-                                    
-                                    <div class="form-field">
-                                      <input type="password" placeholder="Password" required/></div>
-                                    
-                                    <div class="form-field">
-                                      <button class="btn" type="submit" id ="submit_button">Log in</button>
-                                    </div>
-                                </form>
+			</header>
+		</div>
 
-						
-							
-							
+
+		<!-- Features -->
+		<div id="features-wrapper">
+			<div class="container">
+				<div class="row">
+					<!-- <div id="bg"></div> -->
+
+					<form>
+						<div class="form-field">
+							<input placeholder="Email / Username" id="emailTrue" required />
 						</div>
-					</div>
+
+						<div class="form-field">
+							<input type="password" placeholder="Password" id="password" required />
+						</div>
+
+						<div class="form-field">
+							<button class="btn" type="submit" id="submit_button">Log in</button>
+						</div>
+					</form>
+
+
+
+
 				</div>
-</div>
+			</div>
+		</div>
+	</div>
 </body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
-    document.getElementById("submit_button").onclick = function () {
-        
-        location.href = "admin.html";
-    };
+	let login_form = document.getElementById("login-form");
+	let user_name = document.getElementById("emailTrue").value;
+	const Env_URL = "http://localhost:4567"
+
+	var applyButton = document.getElementById("submit_button");
+
+	applyButton.addEventListener('click', (event) => {
+		event.preventDefault();
+		axios.post(Env_URL + "/login_user", {}, {
+			params: {
+				userName: document.getElementById("emailTrue").value,
+				password: document.getElementById("password").value
+			}
+		})
+			.then((response) => {
+				  const tokenData = response.data;
+				  if (response.status == 200) {
+				    //window.sessionStorage.setItem("userToken", JSON.stringify(tokenData));
+				    swal({
+				      title: "Login Successfully!",
+				      text: "Welcome to Pamoja",
+				      icon: "success",
+				    }).then(function(){
+				        window.location.href = "/index.html"
+				        // document.getElementById("login-form").style.display = "none";
+				        //document.querySelector("login").style.display = "none";
+				    });
+
+				  } 
+				console.log(response.status)
+			})
+			.catch(err => {
+				//console.log(err)
+				if (err.response.status == 401) {
+					swal({
+						title: "Login Failed!",
+						text: "Please check your credentials",
+						icon: "error",
+					}).then(function () {
+						login_form.reset()
+					});
+				}
+			});
+
+	});
 </script>
+
 </html>
